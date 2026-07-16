@@ -1,0 +1,12 @@
+[
+  {
+    "id": "stylish-car-mrmnlnzd",
+    "title": "Stylish Car",
+    "tag": "VEHICLE",
+    "category": "VEHICLE",
+    "description": "This is stylish 20th century green color with unique body style car for games",
+    "modelFile": "models/classic+car.glb",
+    "coord": "X:00.0 Y:00.0 Z:00.0",
+    "cinematic": false
+  }
+]
