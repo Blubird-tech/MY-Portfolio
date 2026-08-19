@@ -1,5 +1,12 @@
 # Dusk Studio — setup guide
 
+## What's new in this version
+- A short **preloader** with a live % counter on first load.
+- A **Toolbox** section listing the software you use (Blender, Maya, ZBrush, Substance Painter, Unreal, Unity, Photoshop) — edit these directly in `index.html` under `<section class="toolbox">` if your kit differs.
+- **Filter tabs** above the gallery (All / 3D Artworks / 2D Artworks / Timelapses / Animations) — set per-project in the admin panel.
+- A real **contact form** (Name/Email/Message + spam honeypot) that opens the visitor's email app pre-filled with their message — no backend required. WhatsApp/phone/email stay available right below it.
+
+
 ## What's in this folder
 ```
 index.html                      → the public site
@@ -37,14 +44,28 @@ The gallery now shows plain photos/renders of your models — there is no live 3
 
 Step 5 is the one that makes a change visible to visitors. The panel edits a draft in your browser only — this is a plain static site with no database, so there's no "save" button that publishes by itself. If your host is ever upgraded to something with a backend (Node app, WordPress, etc.), this step can be automated; happy to help with that later if you want it.
 
-There's room for **10 portfolio pieces + 2 cinematic scenes** (12 total). The panel enforces this and warns you when a category is full.
+There's room for **12 portfolio pieces + 2 cinematic scenes** (14 total). The panel enforces this and warns you when a category is full.
 
-## 3. Buy/portfolio links
+Each project also has a **Content type** (3D Artwork / 2D Artwork / Timelapse / Animation) — this controls which tab it shows up under in the gallery filter on the public site. Everything defaults to 3D Artwork.
+
+### Adding a model with more than one photo
+Some models (like the character models) look best shown with several photos in the same tile instead of just one. To do this:
+1. Upload all of that model's photos into `images/`.
+2. In the admin panel, put the first/main photo in **Image file path** as usual.
+3. Put the rest — one file path per line — in the **Additional photos** box that appears right below it.
+4. Export and upload `projects.json` as usual.
+
+All of that model's photos then show together on its one tile, with small arrows and dots so visitors can click through them — it never creates a separate tile per photo.
+
+## 3. Founder photo
+Your profile photo and its background badge are already set up in `assets/founder-photo.jpg` and `assets/founder-avatar-bg.jpg`, and wired into the "FOUNDER" panel in the About section — your photo sits in the circular frame with the badge glowing softly behind it. To swap either one later, just replace those two files with new images of the same names (a square-ish, centered photo works best for `founder-photo.jpg` since the frame is circular).
+
+## 4. Buy/portfolio links
 The Work section now includes two cards linking out to:
 - Your **RenderHub** profile (with a note that all your 3D models can be bought there)
 - Your **Fiverr** portfolio
 
 If either URL ever changes, update the two `<a href="...">` links inside the `.work-links` block in `index.html`.
 
-## 4. If you outgrow the static setup
+## 5. If you outgrow the static setup
 Right now everything lives in flat files, which is simple, free-to-host almost anywhere, and fine for one person maintaining a portfolio. If down the line you want the panel to publish instantly (no manual re-upload step) or want stronger, server-verified login, that means adding a small backend (e.g., a lightweight Node server or a service like Firebase) — a bigger but very doable next step.
